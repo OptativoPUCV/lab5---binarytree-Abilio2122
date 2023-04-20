@@ -148,6 +148,7 @@ Pair * firstTreeMap(TreeMap * tree) {
       }
       struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
       pair->key =current->pair->key;
+      pair->value = current->pair->value;
       return pair;
 }
 
