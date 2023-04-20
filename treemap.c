@@ -221,7 +221,7 @@ void put(struct TreeMap* tree, int key, int value) {
 }
 
 // Función para encontrar el siguiente elemento del árbol
-  struct Pair* nextTreeMap(struct TreeMap* tree) {
+struct Pair* nextTreeMap(struct TreeMap* tree){
       static struct TreeNode* current = NULL;
       if (tree == NULL || tree->root == NULL) {
           return NULL;
@@ -258,5 +258,5 @@ void put(struct TreeMap* tree, int key, int value) {
           struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
           pair->key = current->key;
           pair->value = current->
-
+        }
 }
