@@ -58,7 +58,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
   {
     if(tree->lower_than(tree->current->pair->key,key))
     { //HACIA DERECHA
-      if(tree->current->right==NULL){
+      if( !tree->current->right==NULL){
         
         tree->current->right==new;
         new->parent=tree->current->right;
