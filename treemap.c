@@ -139,7 +139,16 @@ Pair * upperBound(TreeMap * tree, void* key) {
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+  if (tree == NULL || tree->root == NULL) {
+          return NULL;
+      }
+      struct TreeNode* current = tree->root;
+      while (current->left != NULL) {
+          current = current->left;
+      }
+      struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
+      pair->key =current->pair->key;
+      return pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
