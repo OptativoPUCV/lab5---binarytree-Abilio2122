@@ -424,3 +424,28 @@ treemap.c:190:17: error: ‘newTreeMap’ defined but not used [-Werror=unused-f
 cc1: all warnings being treated as errors
 Compilation failed
 5ef624e
+Thu 20 Apr 2023 08:41:57 PM UTC: 
+ treemap.c | 73 +--------------------------------------------------------------
+ 1 file changed, 1 insertion(+), 72 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:164:28: error: ‘struct TreeNode’ has no member named ‘key’
+  164 |         pair->key = current->key;
+      |                            ^~
+treemap.c:165:30: error: ‘struct TreeNode’ has no member named ‘value’
+  165 |         pair->value = current->value;
+      |                              ^~
+treemap.c:173:28: error: ‘struct TreeNode’ has no member named ‘key’
+  173 |         pair->key = current->key;
+      |                            ^~
+treemap.c:174:30: error: ‘struct TreeNode’ has no member named ‘value’
+  174 |         pair->value = current->value;
+      |                              ^~
+treemap.c:187:28: error: ‘struct TreeNode’ has no member named ‘key’
+  187 |         pair->key = current->key;
+      |                            ^~
+treemap.c:188:30: error: ‘struct TreeNode’ has no member named ‘value’
+  188 |         pair->value = current->value;
+      |                              ^~
+Compilation failed
+e38477c
