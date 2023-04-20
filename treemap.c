@@ -161,8 +161,8 @@ Pair * nextTreeMap(TreeMap * tree) {
             current = current->left;
         }
         struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
-        pair->key = current->key;
-        pair->value = current->value;
+        pair->key = current->pair->key;
+        pair->value = current->pair->value;
         return pair;
     } else if (current->right != NULL) {
         current = current->right;
@@ -170,8 +170,8 @@ Pair * nextTreeMap(TreeMap * tree) {
             current = current->left;
         }
         struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
-        pair->key = current->key;
-        pair->value = current->value;
+        pair->key = current->pair->key;
+        pair->value = current->pair->value;
         return pair;
     } else {
         struct TreeNode* parent = NULL;
@@ -184,8 +184,8 @@ Pair * nextTreeMap(TreeMap * tree) {
             return NULL;
         }
         struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
-        pair->key = current->key;
-        pair->value = current->value;
+        pair->key = current->pair->key;
+        pair->value = current->pair->value;
         return pair;
     }
 }
