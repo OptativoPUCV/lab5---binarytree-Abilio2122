@@ -153,5 +153,110 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+#include <stdio.h>
+#include <stdlib.h>
+
+// Estructura para representar un par de elementos
+struct Pair {
+    int key;
+    int value;
+};
+
+// Estructura para representar un nodo del árbol
+struct TreeNode {
+    int key;
+    int value;
+    struct TreeNode* left;
+    struct TreeNode* right;
+};
+
+// Estructura para representar el árbol en sí
+struct TreeMap {
+    struct TreeNode* root;
+};
+
+// Función para crear un nuevo nodo del árbol
+struct TreeNode* newTreeNode(int key, int value) {
+    struct TreeNode* node = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    node->key = key;
+    node->value = value;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
+
+// Función para crear un nuevo árbol
+struct TreeMap* newTreeMap() {
+    struct TreeMap* tree = (struct TreeMap*)malloc(sizeof(struct TreeMap));
+    tree->root = NULL;
+    return tree;
+}
+
+// Función para agregar un elemento al árbol
+void put(struct TreeMap* tree, int key, int value) {
+    struct TreeNode* node = newTreeNode(key, value);
+    if (tree->root == NULL) {
+        tree->root = node;
+        return;
+    }
+    struct TreeNode* current = tree->root;
+    struct TreeNode* parent = NULL;
+    while (current != NULL) {
+        parent = current;
+        if (key < current->key) {
+            current = current->left;
+        } else if (key > current->key) {
+            current = current->right;
+        } else {
+            current->value = value;
+            free(node);
+            return;
+        }
+    }
+    if (key < parent->key) {
+        parent->left = node;
+    } else {
+        parent->right = node;
+    }
+}
+
+// Función para encontrar el siguiente elemento del árbol
+  struct Pair* nextTreeMap(struct TreeMap* tree) {
+      static struct TreeNode* current = NULL;
+      if (tree == NULL || tree->root == NULL) {
+          return NULL;
+      }
+      if (current == NULL) {
+          current = tree->root;
+          while (current->left != NULL) {
+              current = current->left;
+          }
+          struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
+          pair->key = current->key;
+          pair->value = current->value;
+          return pair;
+      }
+      if (current->right != NULL) {
+          current = current->right;
+          while (current->left != NULL) {
+              current = current->left;
+          }
+          struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
+          pair->key = current->key;
+          pair->value = current->value;
+          return pair;
+      } else {
+          struct TreeNode* parent = NULL;
+          while (current != NULL && current == parent->right) {
+              parent = current;
+              current = current->right;
+          }
+          current = parent;
+          if (current == NULL) {
+              return NULL;
+          }
+          struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
+          pair->key = current->key;
+          pair->value = current->
+
 }

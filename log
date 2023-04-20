@@ -188,3 +188,98 @@ Thu 20 Apr 2023 08:07:23 PM UTC:
  tests:  17|3
 total_score: 30/70
 0baf66a
+Thu 20 Apr 2023 08:37:14 PM UTC: 
+ treemap.c | 105 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 105 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:262:1: error: expected identifier before ‘}’ token
+  262 | }
+      | ^
+test.c: In function ‘next_test1’:
+test.c:360:27: error: passing argument 1 of ‘nextTreeMap’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  360 |     Pair* aux=nextTreeMap(tree);
+      |                           ^~~~
+      |                           |
+      |                           TreeMap *
+In file included from test.c:4:
+treemap.c:224:44: note: expected ‘struct TreeMap *’ but argument is of type ‘TreeMap *’
+  224 |   struct Pair* nextTreeMap(struct TreeMap* tree) {
+      |                            ~~~~~~~~~~~~~~~~^~~~
+test.c:360:15: error: initialization of ‘Pair *’ from incompatible pointer type ‘struct Pair *’ [-Werror=incompatible-pointer-types]
+  360 |     Pair* aux=nextTreeMap(tree);
+      |               ^~~~~~~~~~~
+test.c: In function ‘next_test2’:
+test.c:380:27: error: passing argument 1 of ‘nextTreeMap’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  380 |     Pair* aux=nextTreeMap(tree);
+      |                           ^~~~
+      |                           |
+      |                           TreeMap *
+In file included from test.c:4:
+treemap.c:224:44: note: expected ‘struct TreeMap *’ but argument is of type ‘TreeMap *’
+  224 |   struct Pair* nextTreeMap(struct TreeMap* tree) {
+      |                            ~~~~~~~~~~~~~~~~^~~~
+test.c:380:15: error: initialization of ‘Pair *’ from incompatible pointer type ‘struct Pair *’ [-Werror=incompatible-pointer-types]
+  380 |     Pair* aux=nextTreeMap(tree);
+      |               ^~~~~~~~~~~
+test.c:388:21: error: passing argument 1 of ‘nextTreeMap’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  388 |     aux=nextTreeMap(tree);
+      |                     ^~~~
+      |                     |
+      |                     TreeMap *
+In file included from test.c:4:
+treemap.c:224:44: note: expected ‘struct TreeMap *’ but argument is of type ‘TreeMap *’
+  224 |   struct Pair* nextTreeMap(struct TreeMap* tree) {
+      |                            ~~~~~~~~~~~~~~~~^~~~
+test.c:388:8: error: assignment to ‘Pair *’ from incompatible pointer type ‘struct Pair *’ [-Werror=incompatible-pointer-types]
+  388 |     aux=nextTreeMap(tree);
+      |        ^
+test.c:396:21: error: passing argument 1 of ‘nextTreeMap’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  396 |     aux=nextTreeMap(tree);
+      |                     ^~~~
+      |                     |
+      |                     TreeMap *
+In file included from test.c:4:
+treemap.c:224:44: note: expected ‘struct TreeMap *’ but argument is of type ‘TreeMap *’
+  224 |   struct Pair* nextTreeMap(struct TreeMap* tree) {
+      |                            ~~~~~~~~~~~~~~~~^~~~
+test.c:396:8: error: assignment to ‘Pair *’ from incompatible pointer type ‘struct Pair *’ [-Werror=incompatible-pointer-types]
+  396 |     aux=nextTreeMap(tree);
+      |        ^
+test.c: In function ‘next_test3’:
+test.c:414:27: error: passing argument 1 of ‘nextTreeMap’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  414 |     Pair* aux=nextTreeMap(tree);
+      |                           ^~~~
+      |                           |
+      |                           TreeMap *
+In file included from test.c:4:
+treemap.c:224:44: note: expected ‘struct TreeMap *’ but argument is of type ‘TreeMap *’
+  224 |   struct Pair* nextTreeMap(struct TreeMap* tree) {
+      |                            ~~~~~~~~~~~~~~~~^~~~
+test.c:414:15: error: initialization of ‘Pair *’ from incompatible pointer type ‘struct Pair *’ [-Werror=incompatible-pointer-types]
+  414 |     Pair* aux=nextTreeMap(tree);
+      |               ^~~~~~~~~~~
+test.c: In function ‘nextTreeMap’:
+test.c:503:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:606:1: error: expected declaration or statement at end of input
+  606 | }
+      | ^
+test.c: In function ‘nextTreeMap’:
+test.c:606:1: error: expected declaration or statement at end of input
+test.c:607: error: control reaches end of non-void function [-Werror=return-type]
+At top level:
+test.c:503:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+In file included from test.c:4:
+treemap.c:196:6: error: ‘put’ defined but not used [-Werror=unused-function]
+  196 | void put(struct TreeMap* tree, int key, int value) {
+      |      ^~~
+treemap.c:189:17: error: ‘newTreeMap’ defined but not used [-Werror=unused-function]
+  189 | struct TreeMap* newTreeMap() {
+      |                 ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+e1b26d7
