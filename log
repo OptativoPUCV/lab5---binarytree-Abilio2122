@@ -376,3 +376,51 @@ treemap.c:189:17: error: ‘newTreeMap’ defined but not used [-Werror=unused-f
 cc1: all warnings being treated as errors
 Compilation failed
 f990cb0
+Thu 20 Apr 2023 08:41:25 PM UTC: 
+ treemap.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:227:34: error: initialization of ‘struct TreeNode *’ from incompatible pointer type ‘TreeNode *’ [-Werror=incompatible-pointer-types]
+  227 |       struct TreeNode* current = tree->current;
+      |                                  ^~~~
+treemap.c:229:19: error: assignment to ‘struct TreeNode *’ from incompatible pointer type ‘TreeNode *’ [-Werror=incompatible-pointer-types]
+  229 |           current = tree->root;
+      |                   ^
+treemap.c:236:18: error: returning ‘struct Pair *’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  236 |           return pair;
+      |                  ^~~~
+treemap.c:245:18: error: returning ‘struct Pair *’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  245 |           return pair;
+      |                  ^~~~
+treemap.c:260:18: error: returning ‘struct Pair *’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  260 |           return pair;
+      |                  ^~~~
+test.c: In function ‘nextTreeMap’:
+test.c:503:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:606:1: error: expected declaration or statement at end of input
+  606 | }
+      | ^
+test.c:606:1: error: no return statement in function returning non-void [-Werror=return-type]
+test.c: In function ‘nextTreeMap’:
+test.c:606:1: error: expected declaration or statement at end of input
+test.c:607: error: control reaches end of non-void function [-Werror=return-type]
+At top level:
+test.c:503:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+In file included from test.c:4:
+treemap.c:225:14: error: ‘nextTreeMap’ defined but not used [-Werror=unused-function]
+  225 | struct Pair* nextTreeMap(struct TreeMap* tree){
+      |              ^~~~~~~~~~~
+treemap.c:197:6: error: ‘put’ defined but not used [-Werror=unused-function]
+  197 | void put(struct TreeMap* tree, int key, int value) {
+      |      ^~~
+treemap.c:190:17: error: ‘newTreeMap’ defined but not used [-Werror=unused-function]
+  190 | struct TreeMap* newTreeMap() {
+      |                 ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5ef624e

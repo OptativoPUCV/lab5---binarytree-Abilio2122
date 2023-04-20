@@ -153,7 +153,8 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-#include <stdio.h>
+  
+    #include <stdio.h>
 #include <stdlib.h>
 
 // Estructura para representar un par de elementos
@@ -222,10 +223,8 @@ void put(struct TreeMap* tree, int key, int value) {
 
 // Función para encontrar el siguiente elemento del árbol
 struct Pair* nextTreeMap(struct TreeMap* tree){
-      static struct TreeNode* current = NULL;
-      if (tree == NULL || tree->root == NULL) {
-          return NULL;
-      }
+  Pair * nextTreeMap(TreeMap * tree) {
+      struct TreeNode* current = tree->current;
       if (current == NULL) {
           current = tree->root;
           while (current->left != NULL) {
@@ -235,8 +234,7 @@ struct Pair* nextTreeMap(struct TreeMap* tree){
           pair->key = current->key;
           pair->value = current->value;
           return pair;
-      }
-      if (current->right != NULL) {
+      } else if (current->right != NULL) {
           current = current->right;
           while (current->left != NULL) {
               current = current->left;
@@ -245,7 +243,8 @@ struct Pair* nextTreeMap(struct TreeMap* tree){
           pair->key = current->key;
           pair->value = current->value;
           return pair;
-      } else {
+      } 
+      else {
           struct TreeNode* parent = NULL;
           while (current != NULL && current == parent->right) {
               parent = current;
@@ -257,6 +256,7 @@ struct Pair* nextTreeMap(struct TreeMap* tree){
           }
           struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
           pair->key = current->key;
-          pair->value = current->
-        }
+          pair->value = current->value;
+          return pair;
+      }
 }
