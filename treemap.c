@@ -181,10 +181,9 @@ Pair * nextTreeMap(TreeMap * tree) {
         else{
           parent=current->parent;
         }
-        while (current == parent->right) {
+        while (parent!==NULL&&current == parent->right) {
             parent = current;
             current = current->right;
-          if(parent==NULL) break;
         }
         current = parent;
         if (current == NULL) {
