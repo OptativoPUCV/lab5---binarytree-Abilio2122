@@ -178,10 +178,10 @@ Pair * nextTreeMap(TreeMap * tree) {
         if(current==tree->root){
           parent=tree->root;
         }
-      else{
-        parent=current->parent;
-      }
-        while (current != NULL && current == parent->right) {
+        else{
+          parent=current->parent;
+        }
+        while (current == parent->right) {
             parent = current;
             current = current->right;
         }
