@@ -184,7 +184,7 @@ Pair * nextTreeMap(TreeMap * tree) {
         while (current == parent->right) {
             parent = current;
             current = current->right;
-          if(parent->right==NULL) break;
+          if(parent==NULL) break;
         }
         current = parent;
         if (current == NULL) {
