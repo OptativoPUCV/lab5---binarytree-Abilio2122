@@ -154,19 +154,17 @@ Pair * firstTreeMap(TreeMap * tree) {
 
 Pair * nextTreeMap(TreeMap * tree) {
     if (tree->current == NULL) {
-          // start at the leftmost node in the tree
-          tree->current = tree->root;
-          while (tree->current != NULL && tree->current->left != NULL) {
-              tree->current = tree->current->left;
+          // dirijete al nodo minimo
+          firstTreeMap(TreeMap * tree)
           }
       } else if (tree->current->right != NULL) {
-          // go to the leftmost node in the right subtree
+          // va a el nodo minimo de el subnodo derecho
           tree->current = tree->current->right;
           while (tree->current->left != NULL) {
               tree->current = tree->current->left;
           }
       } else {
-          // go up to the first ancestor that is a left child
+          // va al primer ancestro que es un hijo izquierdo
           while (tree->current->parent != NULL && tree->current->parent->right == tree->current) {
               tree->current = tree->current->parent;
           }
@@ -174,8 +172,8 @@ Pair * nextTreeMap(TreeMap * tree) {
       }
       
       if (tree->current == NULL) {
-          return NULL; // no more nodes in the tree
+          return NULL;
       } else {
-          return tree->current->pair; // return pointer to the pair in the current node
+          return tree->current->pair; 
       }
 }
