@@ -154,41 +154,31 @@ Pair * firstTreeMap(TreeMap * tree) {
 
 Pair * nextTreeMap(TreeMap * tree) {
   
-    struct TreeNode* current = tree->current;
-    if (current == NULL) {
-        current = tree->root;
-        while (current->left != NULL) {
-            current = current->left;
+    Pair * nextTreeMap(TreeMap * tree) {
+    if (tree->current == NULL) {
+        // start at the leftmost node in the tree
+        tree->current = tree->root;
+        while (tree->current != NULL && tree->current->left != NULL) {
+            tree->current = tree->current->left;
         }
-        struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
-        pair->key = current->pair->key;
-        pair->value = current->pair->value;
-        return pair;
-    } else if (current->right != NULL) {
-        current = current->right;
-        while (current->left != NULL) {
-            current = current->left;
+    } else if (tree->current->right != NULL) {
+        // go to the leftmost node in the right subtree
+        tree->current = tree->current->right;
+        while (tree->current->left != NULL) {
+            tree->current = tree->current->left;
         }
-        struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
-        pair->key = current->pair->key;
-        pair->value = current->pair->value;
-        return pair;
     } else {
-        struct TreeNode* parent = NULL;
-        if(current==tree->root){
-          parent=tree->root;
+        // go up to the first ancestor that is a left child
+        while (tree->current->parent != NULL && tree->current->parent->right == tree->current) {
+            tree->current = tree->current->parent;
         }
-        while (parent!=NULL&&current == parent->right) {
-            parent = current;
-            current = current->right;
-        }
-        current = parent;
-        if (current == NULL) {
-            return NULL;
-        }
-        struct Pair* pair = (struct Pair*)malloc(sizeof(struct Pair));
-        pair->key = current->pair->key;
-        pair->value = current->pair->value;
-        return pair;
+        tree->current = tree->current->parent;
     }
+    
+    if (tree->current == NULL) {
+        return NULL; // no more nodes in the tree
+    } else {
+        return tree->current->pair; // return pointer to the pair in the current node
+    }
+}
 }
