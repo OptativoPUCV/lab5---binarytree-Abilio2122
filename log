@@ -559,3 +559,17 @@ treemap.c:160:7: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 477a108
+Fri 21 Apr 2023 07:26:22 PM UTC: 
+ treemap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:158:29: error: expected ‘;’ before ‘}’ token
+  158 |           firstTreeMap(tree)
+      |                             ^
+      |                             ;
+  159 | 
+  160 |       } else if (tree->current->right != NULL) {
+      |       ~                      
+Compilation failed
+d0452fb

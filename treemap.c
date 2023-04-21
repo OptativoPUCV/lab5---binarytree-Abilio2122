@@ -155,8 +155,8 @@ Pair * firstTreeMap(TreeMap * tree) {
 Pair * nextTreeMap(TreeMap * tree) {
     if (tree->current == NULL) {
           // dirijete al nodo minimo
-          firstTreeMap(TreeMap * tree)
-          }
+          firstTreeMap(tree)
+          
       } else if (tree->current->right != NULL) {
           // va a el nodo minimo de el subnodo derecho
           tree->current = tree->current->right;
